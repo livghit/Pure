@@ -5,4 +5,4 @@ run:
 	go run *.go
 
 templ: 
-	templ generate
+	templ generate --watch

@@ -42,12 +42,25 @@ func DefaultButton(o ButtonOptions) templ.Component {
 				return err
 			}
 		} else {
-			_, err = templBuffer.WriteString("<button class=\"btn\">")
+			var var_3 = []any{o.Class}
+			err = templ.RenderCSSItems(ctx, templBuffer, var_3...)
 			if err != nil {
 				return err
 			}
-			var var_3 string = o.Label
-			_, err = templBuffer.WriteString(templ.EscapeString(var_3))
+			_, err = templBuffer.WriteString("<button class=\"")
+			if err != nil {
+				return err
+			}
+			_, err = templBuffer.WriteString(templ.EscapeString(templ.CSSClasses(var_3).String()))
+			if err != nil {
+				return err
+			}
+			_, err = templBuffer.WriteString("\">")
+			if err != nil {
+				return err
+			}
+			var var_4 string = o.Label
+			_, err = templBuffer.WriteString(templ.EscapeString(var_4))
 			if err != nil {
 				return err
 			}

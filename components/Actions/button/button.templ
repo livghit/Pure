@@ -9,7 +9,7 @@ templ DefaultButton(o ButtonOptions) {
 	if o.Class == "" {
 		<button>Default</button>
 	} else {
-  <button class="btn">{o.Label}</button>
+  <button class={o.Class}>{o.Label}</button>
 	}
 }
 
