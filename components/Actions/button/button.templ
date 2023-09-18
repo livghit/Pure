@@ -1,0 +1,15 @@
+package components
+
+type ButtonOptions struct{
+ Class string
+ Label string
+}
+
+templ DefaultButton(o ButtonOptions) {
+	if o.Class == "" {
+		<button>Default</button>
+	} else {
+  <button class="btn">{o.Label}</button>
+	}
+}
+
