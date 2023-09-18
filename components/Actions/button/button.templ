@@ -3,13 +3,14 @@ package components
 type ButtonOptions struct{
  Class string
  Label string
+ ID string
 }
 
 templ DefaultButton(o ButtonOptions) {
 	if o.Class == "" {
-		<button>Default</button>
+		<a><button id={ o.ID }>Default</button></a>
 	} else {
-  <button class={o.Class}>{o.Label}</button>
+		<a><button class={ o.Class } id={ o.ID }>{ o.Label }</button></a>
 	}
 }
 

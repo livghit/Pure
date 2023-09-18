@@ -12,6 +12,7 @@ import "bytes"
 type ButtonOptions struct {
 	Class string
 	Label string
+	ID    string
 }
 
 func DefaultButton(o ButtonOptions) templ.Component {
@@ -28,7 +29,15 @@ func DefaultButton(o ButtonOptions) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		if o.Class == "" {
-			_, err = templBuffer.WriteString("<button>")
+			_, err = templBuffer.WriteString("<a><button id=\"")
+			if err != nil {
+				return err
+			}
+			_, err = templBuffer.WriteString(templ.EscapeString(o.ID))
+			if err != nil {
+				return err
+			}
+			_, err = templBuffer.WriteString("\">")
 			if err != nil {
 				return err
 			}
@@ -37,11 +46,15 @@ func DefaultButton(o ButtonOptions) templ.Component {
 			if err != nil {
 				return err
 			}
-			_, err = templBuffer.WriteString("</button>")
+			_, err = templBuffer.WriteString("</button></a>")
 			if err != nil {
 				return err
 			}
 		} else {
+			_, err = templBuffer.WriteString("<a>")
+			if err != nil {
+				return err
+			}
 			var var_3 = []any{o.Class}
 			err = templ.RenderCSSItems(ctx, templBuffer, var_3...)
 			if err != nil {
@@ -55,6 +68,14 @@ func DefaultButton(o ButtonOptions) templ.Component {
 			if err != nil {
 				return err
 			}
+			_, err = templBuffer.WriteString("\" id=\"")
+			if err != nil {
+				return err
+			}
+			_, err = templBuffer.WriteString(templ.EscapeString(o.ID))
+			if err != nil {
+				return err
+			}
 			_, err = templBuffer.WriteString("\">")
 			if err != nil {
 				return err
@@ -64,7 +85,7 @@ func DefaultButton(o ButtonOptions) templ.Component {
 			if err != nil {
 				return err
 			}
-			_, err = templBuffer.WriteString("</button>")
+			_, err = templBuffer.WriteString("</button></a>")
 			if err != nil {
 				return err
 			}

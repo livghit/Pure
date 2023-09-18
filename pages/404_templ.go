@@ -9,6 +9,8 @@ import "context"
 import "io"
 import "bytes"
 
+import icon "github.com/livghit/templkit/components/Icon"
+
 func NotFound() templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, w io.Writer) (err error) {
 		templBuffer, templIsBuffer := w.(*bytes.Buffer)
@@ -40,12 +42,29 @@ func NotFound() templ.Component {
 		if err != nil {
 			return err
 		}
-		_, err = templBuffer.WriteString("</script></head><body><main class=\"flex justify-center\"><h1 class=\"m-auto font-bold text-xl\">")
+		_, err = templBuffer.WriteString("</script><script src=\"https://unpkg.com/@phosphor-icons/web\">")
 		if err != nil {
 			return err
 		}
-		var_4 := `I think you are lost buddy !`
+		var_4 := ``
 		_, err = templBuffer.WriteString(var_4)
+		if err != nil {
+			return err
+		}
+		_, err = templBuffer.WriteString("</script></head><body><main class=\"flex justify-center h-screen\"><h1 class=\"m-auto font-bold text-4xl\">")
+		if err != nil {
+			return err
+		}
+		err = icon.Icon(icon.IconOptions{IName: "ph-smiley-x-eyes ph text-white"}).Render(ctx, templBuffer)
+		if err != nil {
+			return err
+		}
+		_, err = templBuffer.WriteString(" ")
+		if err != nil {
+			return err
+		}
+		var_5 := `I think you are lost buddy !`
+		_, err = templBuffer.WriteString(var_5)
 		if err != nil {
 			return err
 		}

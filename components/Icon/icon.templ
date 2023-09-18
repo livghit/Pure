@@ -1,0 +1,11 @@
+package components
+
+//Icons are based on the Phosphor icons and need to be added via the script tag into the page
+type IconOptions struct{
+  IName string
+}
+
+templ Icon(o IconOptions){
+<i class={o.IName} />
+}
+

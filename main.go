@@ -12,21 +12,19 @@ import (
 )
 
 func main() {
-
 	if err := run(); err != nil {
 		log.Fatalf("Error running the server : %s", err)
 	}
-
 }
 
 func run() error {
+	//All the options of a component should be documented for the users to know what options they can customize
 	o := button.ButtonOptions{
 		Label: "hello",
-		Class: "btn btn-primary",
+		Class: "btn btn-secondary btn-outline",
 	}
 
 	//mux router
-
 	router := mux.NewRouter()
 	index := pages.Index(o)
 	notFound := pages.NotFound()
