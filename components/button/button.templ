@@ -1,0 +1,13 @@
+package button
+
+templ Button(msg string) {
+	<button>{ msg }</button>
+}
+
+// This will be used when you for ex need icon and text
+templ ButtonWithChildren(){
+  <button>
+    {children...}
+  </button>
+}
+
