@@ -10,7 +10,6 @@ import "io"
 import "bytes"
 
 import (
-	"github.com/livghit/iconstempl/icons/heroicons"
 	"github.com/livghit/templkit/components/button"
 )
 
@@ -42,11 +41,7 @@ func Index() templ.Component {
 			if err != nil {
 				return err
 			}
-			_, err = templBuffer.WriteString("</a> ")
-			if err != nil {
-				return err
-			}
-			err = heroicons.AdjustmentsVertical().Render(ctx, templBuffer)
+			_, err = templBuffer.WriteString("</a>")
 			if err != nil {
 				return err
 			}

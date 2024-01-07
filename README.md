@@ -1,4 +1,4 @@
-# TemplKit - The TEMPL CLI FOR GENERATING READY TO USE COMPONENTS (with Tailwind)
+# TemplKit - UI Components
 
 - TemplKit is a CLI tool for generating ready to use components for your project.Please be aware that TemplKit is not an prestyled UI Library , its more like an starting point for your project.
 

@@ -4,10 +4,10 @@ import (
 	"context"
 	"os"
 
-	"github.com/livghit/templkit/components"
+	"github.com/livghit/TemplIcons/heroicons"
 )
 
 func main() {
-	component := components.Index()
-	component.Render(context.Background(), os.Stdout)
+	icon := heroicons.ServerStack()
+	icon.Render(context.Background(), os.Stdout)
 }
