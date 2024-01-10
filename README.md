@@ -1,27 +1,4 @@
-# TemplKit - Many open source components, one kit
+# Pure - Components Library made with Love :heart:
 
-- TemplKit is an collection of OpenSource UI Libraries as Templ Components.
+Pure will bPure will be an Components library without React , Svelte and Co. Pure AlpineJS , Tailwind and HTML Components.
 
-# How will it work?
-
-```go
-package main
-
-import ("github.com/livghit/templkit")
-
-func main(){
-  component := templkit.Button()
-  componrnt.Render(ctx ,os.Stdout)
-}
-
-// or use it directly in the component
-
-templ Index(){
-  @Layout(){
-  <main>
-  @Button("Click me man","submit")
-</main>
-}
-}
-
-```
